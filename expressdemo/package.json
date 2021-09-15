@@ -1,0 +1,16 @@
+{
+  "name": "expressdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "expressdemo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "body-parser": "^1.19.0",
+    "express-art-template": "^1.0.1"
+  }
+}

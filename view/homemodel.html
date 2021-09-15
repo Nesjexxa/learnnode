@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>feedbackhomemodel</title>
+</head>
+<body>
+<ul>
+    {{each comments}}
+    <li>{{$value.dateTime}}|||{{$value.name}}说：{{$value.message}}</li>
+    {{/each}}
+</ul>
+</body>
+</html>

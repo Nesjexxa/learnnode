@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>feedback</title>
+</head>
+<body>
+<ul>
+    {{each comments}}
+    <li>{{$value.dateTime}}:{{$value.name}}说{{$value.message}}</li>
+    {{/each}}
+</ul>
+<a class="btn btn-success" href="/post">发表留言</a>
+</body>
+</html>
