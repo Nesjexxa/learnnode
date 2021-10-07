@@ -1,18 +1,14 @@
 var express = require('express')
 var app = express()
-var fs = require('fs')
+
+var router = require('./router')
+var bodyParser = require('body-parser')
+// 在这里配置的属性，是全局通用的
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
+app.use(router)
 app.engine('html',require('express-art-template'))
 app.use('/public/',express.static('./public/'))
-
-app.get('/', function (req, res) {
-    fs.readFile('./db.json',function (err,data) {
-        if( err ) { return res.status(500).send('server error')}
-        res.render('index.html',{
-            students:JSON.parse(data).students
-        })
-    })
-})
-
 app.listen('3000', function () {
     console.log('成功开启服务器');
 })
