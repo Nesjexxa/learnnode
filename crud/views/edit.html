@@ -82,59 +82,31 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
-
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+            <h2 class="sub-header">编辑学生</h2>
+            <form action="/students/edit" method="post">
+                <div class="form-group">
+                    <label for="idlabel" name="idlabel">id</label>
+                    <input type="hidden" name="myid" class="form-control" id="idlabel" placeholder="Email" value="{{student.id}}">
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+                <div class="form-group">
+                    <label for="namelabel">姓名</label>
+                    <input type="name" name="name" class="form-control" id="namelabel" placeholder="Email" value="{{student.name}}">
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+                <label for="namelabel">性别</label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+                </label>
+                <div class="form-group">
+                    <label for="namelabel">年龄</label>
+                    <input class="form-control" name="age" type="number" id="nameage" value="{{student.age}}">
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-            </div>
-
-            <h2 class="sub-header">Section title</h2>
-            <a href="/students/new" type="button"><button>添加学生</button></a>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>姓名</th>
-                        <th>性别</th>
-                        <th>年龄</th>
-                        <th>爱好</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {{each students}}
-                    <tr>
-                        <td>{{$value.id}}</td>
-                        <td>{{$value.name}}</td>
-                        <td>{{$value.gender}}</td>
-                        <td>{{$value.age}}</td>
-                        <td>{{$value.hobbies}}</td>
-                        <td><a href="/students/edit?id={{$value.id}}" type="button"><button>编辑学生</button></a></td>
-                        <td><a href="/students/delete?id={{$value.id}}" type="button"><button>删除学生</button></a></td>
-                    </tr>
-                    {{ /each }}
-                    </tbody>
-                </table>
-            </div>
+                <label for="namelabel">爱好</label>
+                <input class="form-control" type="text" id="" name="hobbies" value="{{student.hobbies}}">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
         </div>
     </div>
 </div>

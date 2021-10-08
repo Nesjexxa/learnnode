@@ -24,15 +24,82 @@ exports.find = function (callback) {
 
 // 添加保存学生
 exports.save = function (student,callback) {
+    console.log('开始保存文件')
+    fs.readFile(dbPath,function (err, data) {
+        if (err) {
+            return callback(err)
+        }
+        var students = JSON.parse(data).students
+        student.id = students[students.length - 1].id + 1
+        students.push(student)
+        var fileData = JSON.stringify({
+            students:students
+        })
 
+        fs.writeFile(dbPath,fileData,function(err){
+            if(err){
+                return callback(err)
+            }
+           // callback(null)
+        })
+        callback(null, JSON.parse(data).students)
+    })
 }
+// 模拟调用
+// save({
+//     name:'xx',
+//     age:18,
+// },function (err) {
+//     if(err){
+//
+//     }else{
+//
+//     }
+// })
 
 // 删除学生
-exports.delete = function (student,callback) {
+exports.delete = function (id,callback) {
+    console.log('开始删除学生信息')
+    fs.readFile(dbPath,function (err,data) {
+        if(err) {return callback(err)}
+        var students = JSON.parse(data).students
+        for(var i=0;i<students.length;i++){
+            console.log(students[i].id)
+            if(students[i].id == id) {
+                console.log('i ==== '+i)
+                students.splice(i,1)
+                break
+            }
+        }
 
+        var fileData = JSON.stringify({
+            students : students}
+        )
+
+        fs.writeFile(dbPath,fileData,function (err) {
+            if(err){ callback(err)}
+            callback(null)
+        })
+        callback(null, JSON.parse(data).students)
+    })
 }
-
+// delete({id:1},function (err) {
+//     if(err)
+// })
 // 更新学生
 exports.reflash = function (student,callback) {
 
+}
+
+exports.getById = function (id,callback) {
+    fs.readFile(dbPath,function (err,data) {
+        if(err){callback(err)}
+        var students = JSON.parse(data).students
+        console.log(id)
+        var stu = students.find(function (item) {
+            return item.id == id
+        })
+        console.log(stu)
+        callback(null,stu)
+    })
 }
