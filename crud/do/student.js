@@ -87,8 +87,27 @@ exports.delete = function (id,callback) {
 //     if(err)
 // })
 // 更新学生
-exports.reflash = function (student,callback) {
+exports.edit = function (student,callback) {
+    fs.readFile(dbPath,function (err,data) {
+        if (err) {
+            return callback(err)
+        }
+        var students = JSON.parse(data).students
+        var stu = students.find(function (item) {
+            return item.id == student.id
+        })
+        stu.age = student.age
+        stu.name = student.name
+        stu.hobbies = student.hobbies
+        stu.gender = student.inlineRadioOptions = "option1"?"男":"女"
+        console.log(stu)
+        var fileData = JSON.stringify({students:students})
 
+        fs.writeFile(dbPath,fileData,function (err) {
+            if(err){callback(err)}
+        })
+        callback(null,JSON.parse(data).students)
+    })
 }
 
 exports.getById = function (id,callback) {

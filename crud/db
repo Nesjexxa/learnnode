@@ -1,1 +1,1 @@
-{"students":[{"id":7,"name":"张7","gender":0,"age":17,"hobbies":"吃饭、睡觉、打豆豆、lol"},{"name":"12345","inlineRadioOptions":"option1","age":"3141","hobbies":"打球 吃饭 看痘痘","id":8},{"name":"jack","inlineRadioOptions":"option2","age":"43","hobbies":"打球 吃饭 看痘痘","id":9}]}
+{"students":[{"name":"12345","inlineRadioOptions":"option1","age":"31","hobbies":"打球 吃饭 看痘痘","id":8,"gender":"男"},{"name":"jack","inlineRadioOptions":"option2","age":"43","hobbies":"打球 吃饭 看痘痘","id":9},{"name":"i am rocket","inlineRadioOptions":"option1","age":"18","hobbies":"打球 吃饭 看痘痘","id":10}]}

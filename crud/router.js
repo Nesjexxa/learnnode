@@ -47,9 +47,14 @@ router.get('/students/edit',function (req,res) {
         res.render('edit.html',{student:student})
     })
 })
+
 router.post('/students/edit', function (req, res) {
     var student = req.body
     console.log(student)
+    Student.edit(student,function (err) {
+        if(err){res.status(500).send('server error')}
+        res.redirect('/students')
+    })
 })
 
 module.exports = router
