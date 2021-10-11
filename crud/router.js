@@ -57,5 +57,13 @@ router.post('/students/edit', function (req, res) {
     })
 })
 
+router.get('/students/ajaxtest', function (req, res) {
+    console.log(req);
+    res.send('yes you get it')
+})
+
+router.get('/chat', function (req, res) {
+    res.render('chat.html')
+})
 module.exports = router
 

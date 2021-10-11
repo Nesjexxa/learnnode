@@ -30,6 +30,21 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+        function loadXMLDoc()
+        {
+            var xmlhttp = new XMLHttpRequest()
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    document.getElementById("ajaxdiv").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","/students/ajaxtest",true);
+            xmlhttp.send();
+        }
+    </script>
 </head>
 
 <body>
@@ -135,6 +150,10 @@
                     </tbody>
                 </table>
             </div>
+            <div id="ajaxdiv" >
+                <h2>需要被修改的内容</h2>
+            </div>
+            <button type="button" onclick="loadXMLDoc()">修改内容</button>
         </div>
     </div>
 </div>

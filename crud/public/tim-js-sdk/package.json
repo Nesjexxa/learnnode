@@ -1,0 +1,51 @@
+{
+  "_from": "tim-js-sdk@^2.14.0",
+  "_id": "tim-js-sdk@2.14.0",
+  "_inBundle": false,
+  "_integrity": "sha512-mFHLqTPoQDG6bIcB0xWna+QOf13TtEC4nBwPcRituR7SOr8FYRJx+nvva+0EYZttNBnEVAlYZhgEEj8qbUkEgg==",
+  "_location": "/tim-js-sdk",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "tim-js-sdk@^2.14.0",
+    "name": "tim-js-sdk",
+    "escapedName": "tim-js-sdk",
+    "rawSpec": "^2.14.0",
+    "saveSpec": null,
+    "fetchSpec": "^2.14.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tim-js-sdk/-/tim-js-sdk-2.14.0.tgz",
+  "_shasum": "205cf17ee648019a21ed5472f1022b61ae8b6df2",
+  "_spec": "tim-js-sdk@^2.14.0",
+  "_where": "/Users/zhangwei/WebstormProjects/learnnode/crud",
+  "author": {
+    "name": "Tencent Cloud Terminal R&D Center"
+  },
+  "bugs": {
+    "url": "https://github.com/tencentyun/TIMSDK/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Tencent Cloud IM SDK for Web",
+  "homepage": "https://github.com/tencentyun/TIMSDK#readme",
+  "keywords": [
+    "即时通信",
+    "IM",
+    "腾讯云IM",
+    "即时通讯",
+    "通信"
+  ],
+  "license": "ISC",
+  "main": "tim-js.js",
+  "name": "tim-js-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tencentyun/TIMSDK.git"
+  },
+  "version": "2.14.0"
+}
