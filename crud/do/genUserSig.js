@@ -1,4 +1,3 @@
-
 var crypto = require('crypto');
 var zlib = require('zlib');
 
@@ -57,6 +56,7 @@ Api.prototype._hmacsha256 = function (identifier, currTime, expire, base64UserBu
     if (null != base64UserBuf) {
         contentToBeSigned += "TLS.userbuf:" + base64UserBuf + "\n";
     }
+    console.log(this.key)
     const hmac = crypto.createHmac("sha256", this.key);
     return hmac.update(contentToBeSigned).digest('base64');
 };
@@ -74,7 +74,6 @@ Api.prototype._hmacsha256 = function (identifier, currTime, expire, base64UserBu
  */
 Api.prototype._genUserbuf = function (account, dwAuthID, dwExpTime,
                                       dwPrivilegeMap, dwAccountType, roomstr) {
-
     let accountLength = account.length;
     let roomstrlength = 0;
     let length = 1 + 2 + accountLength + 20 ;

@@ -2,6 +2,7 @@ var fs = require('fs')
 var express = require('express')
 var router = express.Router()
 var Student = require('./do/student')
+var genUserSig = require('./do/genUserSig')
 router.get('/students', function (req, res) {
     // 调用写好的异步api
     // 这里的res并不再需要配置render
@@ -65,5 +66,20 @@ router.get('/students/ajaxtest', function (req, res) {
 router.get('/chat', function (req, res) {
     res.render('chat.html')
 })
+
+router.get('/login/usersig', function (req, res) {
+    console.log('收到usersig请求');
+    let userID = req.query.userID
+    //var a = genUserSig.Api(1400561810,'cba0206b6ce6fae496ec494fc222ddb54cba668b8219414d0c80f4f5eba3eb83')
+    let a = new genUserSig.Api(1400561810,'cba0206b6ce6fae496ec494fc222ddb54cba668b8219414d0c80f4f5eba3eb83')
+    let usersig = a.genUserSig(userID,86400)
+    console.log(usersig)
+    res.set({
+        "Access-Control-Allow-Origin": "http://localhost:8080",
+        "Access-Control-Allow-Credentials": true
+    });
+    res.send(usersig)
+})
+
 module.exports = router
 
