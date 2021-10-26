@@ -119,6 +119,10 @@ router.get('/TIM/login', function (req, res) {
             return res.status(500).send('server error')
         }
         console.log('-----------')
+        res.set({
+            "Access-Control-Allow-Origin": "http://localhost:8080",
+            "Access-Control-Allow-Credentials": true
+        });
         return res.send(ident)
     })
 })
@@ -132,6 +136,10 @@ router.post('/TIM/login', function (req, res) {
         if (err) {
             return res.status(500).send('server error')
         }
+        res.set({
+            "Access-Control-Allow-Origin": "http://localhost:8080",
+            "Access-Control-Allow-Credentials": true
+        });
         console.log('-----------')
         return res.send(ident)
     })
