@@ -6,6 +6,7 @@
  */
 
 var fs = require('fs')
+// 相对路径从node 进入的地方开始
 var dbPath = './db'
 
 /** 获取所有学生列表

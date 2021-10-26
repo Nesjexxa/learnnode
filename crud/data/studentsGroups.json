@@ -1,0 +1,4 @@
+{"Groups": [
+  {"GroupID":"0001", "GroupMember": ["jack","tim","lucy"]},
+  {"GroupID":"0002", "GroupMember": ["archer","lancer","rider"]}
+]}

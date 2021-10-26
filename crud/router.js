@@ -3,6 +3,9 @@ var express = require('express')
 var router = express.Router()
 var Student = require('./do/student')
 var genUserSig = require('./do/genUserSig')
+var axios = require('axios')
+var Cps = require('./do/cps')
+var Rest =require('./do/REST')
 router.get('/students', function (req, res) {
     // 调用写好的异步api
     // 这里的res并不再需要配置render
@@ -30,6 +33,7 @@ router.post('/students/new', function (req, res) {
     // 专门制作一个文件负责数据，封装对于这个数据模块的所有操作，只处理数据，不关心业务（交互）
 
 })
+
 router.get('/students/delete', function (req, res) {
     var id = req.query.id
     console.log(id);
@@ -81,5 +85,71 @@ router.get('/login/usersig', function (req, res) {
     res.send(usersig)
 })
 
+// 对axios请求http的尝试
+// post的请求体需要采用json格式 即 { "name":"value" }
+// post请求也能在url中添加query
+router.get('/forward',function (req,res) {
+    Rest.QueryOnlineStatue(["aaa","bbb"],true,function (err,data) {
+        if(err){res.status(500).send('server error')}
+        console.log(data)
+        res.send(data)
+    })
+})
+
+// 处理创建聊天群组 需要以JSON格式传输群对象和群内成员名，返回创建的群组ID，并会保存在服务器数据库中
+// 如 "memberlist":[{"Member_Account":"aaa"},{"Member_Account":"bbb"}]
+router.get('/forward/createGroup',function (req,res) {
+    // let memberlist = req.body.memberlist
+    let memberlist = [{"Member_Account":"aaa"},{"Member_Account":"bbb"}]
+    Rest.CreatGroup(memberlist,'test1',function (err,data) {
+        if(err){res.status(500).send('server error')}
+        console.log(data)
+        res.send(data)
+    })
+})
+
+// 处理登陆页的身份判断
+router.get('/TIM/login', function (req, res) {
+    // console.log(req);
+    // var person = req.body
+    var person =req.query
+    console.log(person)
+    Cps.login(person.name,person.id,function (err,ident) {
+        if (err) {
+            return res.status(500).send('server error')
+        }
+        console.log('-----------')
+        return res.send(ident)
+    })
+})
+
+router.post('/TIM/login', function (req, res) {
+    // console.log(req);
+    var person = req.body
+    // var person =req.query
+    console.log(person)
+    Cps.login(person.name,person.id,function (err,ident) {
+        if (err) {
+            return res.status(500).send('server error')
+        }
+        console.log('-----------')
+        return res.send(ident)
+    })
+})
+// 寻找自己所在的聊天组 需要传递query 为成员name
+// 返回所在聊天组id
+router.get('/groupfinished',function (req,res) {
+    let myID = req.query.name
+    console.log('------------')
+    console.log(myID)
+    Cps.findMyGroups(myID,function (err,data) {
+        if(err){res.status(500).send('server error')}
+        res.set({
+            "Access-Control-Allow-Origin": "http://localhost:8080",
+            "Access-Control-Allow-Credentials": true
+        });
+        res.send(data)
+    })
+})
 module.exports = router
 

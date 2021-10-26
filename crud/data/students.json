@@ -1,0 +1,7 @@
+{"students":
+[
+  {"name":"12345","inlineRadioOptions":"option1","age":"16","hobbies":"打球 吃饭 ","id":"2001","gender":"男", "status": "student"},
+  {"name":"jack","inlineRadioOptions":"option2","age":"16","hobbies":" 吃饭 ","id":"2002","gender":"男", "status": "student"},
+  {"name":"tom","inlineRadioOptions":"option1","age":"15","hobbies":"打球 ","id":"2003","gender":"男", "status": "student"}
+]
+}

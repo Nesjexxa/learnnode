@@ -1,0 +1,5 @@
+{"teacher":[
+  {"name":"tim","inlineRadioOptions":"option1","age":"31","hobbies":"看电影","id":1002,"gender":"男", "status": "teacher"},
+  {"name":"cake","inlineRadioOptions":"option2","age":"43","hobbies":"打球 ","id":1003,"gender":"男", "status": "teacher"},
+  {"name":"steven","inlineRadioOptions":"option1","age":"28","hobbies":"游泳","id":1004,"gender":"女", "status": "teacher"}
+]}
