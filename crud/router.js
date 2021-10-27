@@ -138,7 +138,8 @@ router.post('/TIM/login', function (req, res) {
         }
         res.set({
             "Access-Control-Allow-Origin": "http://localhost:8080",
-            "Access-Control-Allow-Credentials": true
+            "Access-Control-Allow-Credentials": true,
+            "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE"
         });
         console.log('-----------')
         return res.send(ident)
@@ -158,6 +159,15 @@ router.get('/groupfinished',function (req,res) {
         });
         res.send(data)
     })
+})
+// 处理带预检的请求
+router.options('/TIM/login',function (req,res) {
+    res.set({
+        "Access-Control-Allow-Origin": "http://localhost:8080",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers":"Content-Type,XFILENAME,XFILECATEGORY,XFILESIZE"
+    });
+    res.end()
 })
 module.exports = router
 
