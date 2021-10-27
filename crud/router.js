@@ -133,14 +133,14 @@ router.post('/TIM/login', function (req, res) {
     // var person =req.query
     console.log(person)
     Cps.login(person.name,person.id,function (err,ident) {
-        if (err) {
-            return res.status(500).send('server error')
-        }
         res.set({
             "Access-Control-Allow-Origin": "http://localhost:8080",
             "Access-Control-Allow-Credentials": true,
             "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE"
         });
+        if (err) {
+            return res.status(500).send('server error')
+        }
         console.log('-----------')
         return res.send(ident)
     })

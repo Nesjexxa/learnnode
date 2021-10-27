@@ -39,7 +39,7 @@ exports.login = function (name, id, callback) {
                     stu = students[i]
                 }
             }
-            if(stu.name == name){return callback(null, stu)}
+            if(stu && stu.name == name){return callback(null, stu)}
             else{ return callback('NOT FOUND THE ID') }
         })
     }

@@ -1,4 +1,4 @@
-{"teacher":[
+{"teachers":[
   {"name":"fred","age":"31","password":"123456","id":100002,"gender":"男", "role": "teacher","headImgURL": ""},
   {"name":"slack","age":"43","password":"123456","id":100003,"gender":"男", "role": "teacher","headImgURL": ""},
   {"name":"steven","age":"28","password":"123456","id":100004,"gender":"女", "role": "teacher","headImgURL": ""}
