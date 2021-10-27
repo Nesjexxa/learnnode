@@ -9,18 +9,18 @@ var groupsDBPath = './data/studentsGroups.json'
 exports.login = function (name, id, callback) {
     let idenID = id.substring(0,1)
     if(idenID == '1'){
+        console.log('--------')
         fs.readFile(teacherDBPath,function (err,data) {
             if(err) { return callback(err) }
             let teachers = JSON.parse(data).teachers
-            // var stu = students.find(function (item) {
-            //     return item.id == id
-            // })
+            console.log(teachers)
             let tea
             for(let i = 0;i<teachers.length;i++){
                 if(teachers[i].id === id) {
                     tea = teachers[i]
                 }
             }
+            console.log(tea)
             if(tea){return callback(null, tea)}
             else{ return callback('NOT FOUND THE ID') }
         })

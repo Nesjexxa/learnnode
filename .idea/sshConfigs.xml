@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" id="43ace572-4707-4cc7-ad83-71ec4d0c9853" customName="ali_cps" nameFormat="CUSTOM">
+        <option name="customName" value="ali_cps" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
