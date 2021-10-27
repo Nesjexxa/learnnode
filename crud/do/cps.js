@@ -8,7 +8,6 @@ var groupsDBPath = './data/studentsGroups.json'
 // 判断登陆者身份
 exports.login = function (name, id, callback) {
     let idenID = id.substring(0,1)
-    console.log(idenID=='2')
     if(idenID == '1'){
         fs.readFile(teacherDBPath,function (err,data) {
             if(err) { return callback(err) }
@@ -44,6 +43,7 @@ exports.login = function (name, id, callback) {
             else{ return callback('NOT FOUND THE ID') }
         })
     }
+    else{ return callback('NOT FOUND THE ID') }
 }
 // 根据name找到自己所在的组,返回组id
 exports.findMyGroups = function (name,callback) {
