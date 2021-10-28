@@ -141,7 +141,6 @@ router.post('/TIM/login', function (req, res) {
         if (err) {
             return res.status(500).send('server error')
         }
-        console.log('-----------')
         return res.send(ident)
     })
 })
